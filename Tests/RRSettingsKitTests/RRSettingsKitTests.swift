@@ -6,11 +6,14 @@ final class RRSettingsKitTests: XCTestCase {
     func testExample() {
         var body: some View {
             ScrollView {
-                RRSettingsKit.AboutRow(title: "Made with ❤️ by Rudrank Riyam", accessibilityTitle: "Made with love by Rudrank Riyam")
+                RRSettingsKit.AboutRow(
+                    title: "Made with ❤️ by Rudrank Riyam",
+                    accessibilityTitle: "Made with love by Rudrank Riyam"
+                )
             }
         }
     }
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }

@@ -13,7 +13,7 @@ public struct AboutRow: View {
         self.title = title
         self.accessibilityTitle = accessibilityTitle
     }
-    
+
     public var body: some View {
         Text(title.uppercased())
             .font(.caption)
@@ -38,20 +38,26 @@ public struct TwitterRow: View {
     ///   - title: The title of the settings row.
     ///   - twitterAppURL: The deeplink to directly open in the Twitter app.
     ///   - twitterWebURL: The link to open in the browser if the app is not available.
-    public init(imageName: String = "textbox", title: String, twitterAppURL: String, twitterWebURL: String, addOverlay: Bool = true) {
+    public init(
+        imageName: String = "textbox",
+        title: String,
+        twitterAppURL: String,
+        twitterWebURL: String,
+        addOverlay: Bool = true
+    ) {
         self.title = title
         self.imageName = imageName
         self.twitterAppURL = twitterAppURL
         self.twitterWebURL = twitterWebURL
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         SettingsActionRow(imageName: imageName, title: title, addOverlay: addOverlay, action: {
             openTwitter(appURL: twitterAppURL, webURL: twitterWebURL)
         })
     }
-    
+
     private func openTwitter(appURL: String, webURL: String) {
         if let appURL = URL(string: appURL), UIApplication.shared.canOpenURL(appURL) {
             UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
@@ -73,19 +79,24 @@ public struct WriteReviewRow: View {
     ///   - imageName: The icon for the settings row.
     ///   - title: The title of the settings row.
     ///   - appURL: The URL of the app.
-    public init(imageName: String = "pencil.and.outline", title: String = "Write a review", appURL: String, addOverlay: Bool = true) {
+    public init(
+        imageName: String = "pencil.and.outline",
+        title: String = "Write a review",
+        appURL: String,
+        addOverlay: Bool = true
+    ) {
         self.title = title
         self.imageName = imageName
         self.appURL = appURL
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         SettingsActionRow(imageName: imageName, title: title, addOverlay: addOverlay, action: {
             writeReview(appURL: appURL)
         })
     }
-    
+
     private func writeReview(appURL: String) {
         guard let url = URL(string: appURL) else { return }
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
@@ -100,24 +111,29 @@ public struct AppVersionRow: View {
     var title: String = "App version"
     var version: String
     var addOverlay: Bool
-     
+
     /// The row which tells the user the app version of your application
     /// - Parameters:
     ///   - imageName: The icon for the app version row. The default is `info.circle`.
     ///   - title: The tile for the app version row. The default is `App version`.
     ///   - version: The version of your app.
-    public init(imageName: String = "info.circle", title: String = "App version", version: String, addOverlay: Bool = true) {
+    public init(
+        imageName: String = "info.circle",
+        title: String = "App version",
+        version: String,
+        addOverlay: Bool = true
+    ) {
         self.imageName = imageName
         self.title = title
         self.version = version
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         HStack(spacing: 8) {
             Image(systemName: imageName)
                 .customIconImage()
-            
+
             Text(title)
 
             Spacer()
@@ -136,7 +152,7 @@ public struct SettingsToggleRow: View {
     private var title: String
     private var addOverlay: Bool
     @Binding var value: Bool
-    
+
     /// A generic settings row which can be customised according to your needs.
     /// - Parameters:
     ///   - imageName: The icon for the settings row.
@@ -147,14 +163,14 @@ public struct SettingsToggleRow: View {
         self.addOverlay = addOverlay
         self._value = value
     }
-    
+
     public var body: some View {
         Toggle(isOn: $value) {
             Image(systemName: imageName)
                 .font(.headline)
                 .frame(minWidth: 25, alignment: .leading)
                 .accessibility(hidden: true)
-            
+
             Text(title)
         }
         .padding(.vertical, 12)
@@ -170,18 +186,28 @@ extension View {
             .frame(minWidth: 25, alignment: .leading)
             .accessibility(hidden: true)
     }
-    
-    func settingsBackground(cornerRadius: CGFloat = 16, innerPadding: CGFloat = 8, outerBottomPadding: CGFloat = 6, addOverlay: Bool = true) -> some View {
+
+    func settingsBackground(
+        cornerRadius: CGFloat = 16,
+        innerPadding: CGFloat = 8,
+        outerBottomPadding: CGFloat = 6,
+        addOverlay: Bool = true
+    ) -> some View {
         let gradient = Gradient(colors: [.accentColor, .accentColor.opacity(0.5)])
-        
+
         return self
             .foregroundColor(.accentColor)
             .frame(maxWidth: .infinity, alignment: .center)
             .padding(.horizontal)
             .padding(.vertical, innerPadding)
             .contentShape(Rectangle())
-            .overlay(addOverlay ? RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom), lineWidth: 1) : nil)
+            .overlay(
+                addOverlay ? RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(
+                        LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom),
+                        lineWidth: 1
+                    ) : nil
+            )
             .padding(.bottom, outerBottomPadding)
             .padding(.horizontal)
     }

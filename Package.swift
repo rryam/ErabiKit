@@ -11,7 +11,7 @@ let package = Package(
         .library(
             name: "RRSettingsKit",
             type: .dynamic,
-            targets: ["RRSettingsKit"]),
+            targets: ["RRSettingsKit"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -25,6 +25,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "RRSettingsKitTests",
-            dependencies: ["RRSettingsKit"]),
+            dependencies: ["RRSettingsKit"])
     ]
 )

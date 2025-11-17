@@ -12,7 +12,7 @@ public struct SettingsNavigationRow<Destination: View>: View {
     private var title: String
     private var destination: Destination
     private var addOverlay: Bool
-    
+
     /// A generic settings row which can be customised according to your needs.
     /// - Parameters:
     ///   - imageName: The icon for the settings row.
@@ -25,7 +25,7 @@ public struct SettingsNavigationRow<Destination: View>: View {
         self.destination = destination
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         NavigationLink(destination: destination) {
             SettingsRow(imageName: imageName, title: title, addOverlay: addOverlay)
@@ -37,7 +37,7 @@ public struct SettingsNavigationRow<Destination: View>: View {
 public struct SettingsActionRow: View {
     private var imageName: String
     private var title: String
-    private var action: () -> ()
+    private var action: () -> Void
     private var addOverlay: Bool
 
     /// A generic settings row which can be customised according to your needs.
@@ -46,13 +46,13 @@ public struct SettingsActionRow: View {
     ///   - title: The title of the settings row.
     ///   - action: The custom action that you want to perform on tapping the row.
     ///   - addOverlay: Add overlay to the border of the row.
-    public init(imageName: String, title: String, addOverlay: Bool = true, action: @escaping () -> ()) {
+    public init(imageName: String, title: String, addOverlay: Bool = true, action: @escaping () -> Void) {
         self.imageName = imageName
         self.title = title
         self.action = action
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         Button(action: action) {
             SettingsRow(imageName: imageName, title: title, addOverlay: addOverlay)
@@ -78,16 +78,16 @@ public struct SettingsRow: View {
         self.showDisclosure = showDisclosure
         self.addOverlay = addOverlay
     }
-    
+
     public var body: some View {
         HStack(spacing: 8) {
             Image(systemName: imageName)
                 .customIconImage()
-            
+
             Text(title)
-            
+
             Spacer()
-            
+
             if showDisclosure {
                 Image(systemName: "chevron.right")
             }

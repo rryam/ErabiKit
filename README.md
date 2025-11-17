@@ -2,7 +2,7 @@
 
 A beautiful settings screen created in SwiftUI. It is based on my [Gradient Game!](https://apps.apple.com/app/id1479784361)
 
-ErabiKit (選び) is the Japanese word for "choice" or "selection," reflecting the essence of a settings screen—a place where users make choices and selections to personalize their experience.
+ErabiKit (選び) is the Japanese word for "choice" or "selection."
 
 ## Support
 
