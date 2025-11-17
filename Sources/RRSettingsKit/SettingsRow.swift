@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RRComponentsKit
 
 public struct SettingsNavigationRow<Destination: View>: View {
     private var imageName: String
@@ -86,7 +85,6 @@ public struct SettingsRow: View {
                 .customIconImage()
             
             Text(title)
-                .font(type: .poppins, weight: .regular, style: .body)
             
             Spacer()
             

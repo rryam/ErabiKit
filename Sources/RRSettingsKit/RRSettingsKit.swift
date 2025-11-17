@@ -3,23 +3,20 @@ import SwiftUI
 public struct AboutRow: View {
     private var title: String
     private var accessibilityTitle: String
-    private var style: UIFont.TextStyle
-    
+
     /// A view for about description.
     /// - Parameters:
     ///   - title: The title of the row. For example, the title can be "Made with ❤️ by Rudrank Riyam".
     ///   - accessibilityTitle: The accessibility label for the row.
-    ///   - style: The font text style. The default value is caption1.
     ///   For example, the label can be "Made with love by Rudrank Riyam".
-    public init(title: String, accessibilityTitle: String, style: UIFont.TextStyle = .caption1) {
+    public init(title: String, accessibilityTitle: String) {
         self.title = title
         self.accessibilityTitle = accessibilityTitle
-        self.style = style
     }
     
     public var body: some View {
         Text(title.uppercased())
-            .font(type: .poppins, weight: .regular, style: style)
+            .font(.caption)
             .kerning(1)
             .multilineTextAlignment(.center)
             .frame(minWidth: 100, maxWidth: .infinity, alignment: .center)
@@ -122,12 +119,11 @@ public struct AppVersionRow: View {
                 .customIconImage()
             
             Text(title)
-                .font(type: .poppins, weight: .regular, style: .body)
-            
+
             Spacer()
-            
+
             Text(version)
-                .font(type: .poppins, weight: .bold, style: .body)
+                .fontWeight(.bold)
         }
         .accessibilityElement(children: .combine)
         .padding(.vertical, 12)
@@ -160,7 +156,6 @@ public struct SettingsToggleRow: View {
                 .accessibility(hidden: true)
             
             Text(title)
-                .font(type: .poppins, weight: .regular, style: .body)
         }
         .padding(.vertical, 12)
         .toggleStyle(SwitchToggleStyle(tint: .accentColor))
