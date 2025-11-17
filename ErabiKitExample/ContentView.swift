@@ -1,12 +1,12 @@
 //
 //  ContentView.swift
-//  RRSettingsKitExample
+//  ErabiKitExample
 //
 //  Created by Rudrank Riyam on 12/10/20.
 //
 
 import SwiftUI
-import RRSettingsKit
+import ErabiKit
 
 struct ContentView: View {
     var body: some View {

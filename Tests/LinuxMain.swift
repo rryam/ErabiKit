@@ -1,7 +1,7 @@
 import XCTest
 
-import RRSettingsKitTests
+import ErabiKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += RRSettingsKitTests.allTests()
+tests += ErabiKitTests.allTests()
 XCTMain(tests)

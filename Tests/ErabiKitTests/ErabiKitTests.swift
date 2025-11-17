@@ -1,12 +1,12 @@
 import XCTest
 import SwiftUI
-@testable import RRSettingsKit
+@testable import ErabiKit
 
-final class RRSettingsKitTests: XCTestCase {
+final class ErabiKitTests: XCTestCase {
     func testExample() {
         var body: some View {
             ScrollView {
-                RRSettingsKit.AboutRow(
+                ErabiKit.AboutRow(
                     title: "Made with ❤️ by Rudrank Riyam",
                     accessibilityTitle: "Made with love by Rudrank Riyam"
                 )

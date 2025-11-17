@@ -1,6 +1,6 @@
 //
 //  SettingsRow.swift
-//  RRSettingsKit
+//  ErabiKit
 //
 //  Created by Rudrank Riyam on 29/03/21.
 //

@@ -14,13 +14,13 @@ definitions:
             -skipPackagePluginValidation
             
 workflows:
-  rrsettingskit:
-    name: RRSettingsKit Workflow
+  erabikit:
+    name: ErabiKit Workflow
     instance_type: mac_mini_m1
     environment:
       xcode: 14.2
       vars:
-        XCODE_SCHEME: RRSettingsKit
+        XCODE_SCHEME: ErabiKit
         DESTINATION: "platform=iOS Simulator,name=iPhone 14"
     triggering:
       <<: *events

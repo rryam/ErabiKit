@@ -39,14 +39,14 @@ Add ErabiKit to your project using Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/rudrankriyam/RRSettingsKit.git", from: "1.0.0")
+    .package(url: "https://github.com/rryam/ErabiKit.git", from: "1.0.0")
 ]
 ```
 
 Then import it in your SwiftUI views:
 
 ```swift
-import RRSettingsKit
+import ErabiKit
 ```
 
 ## Table of Contents
@@ -73,7 +73,7 @@ Here's a simple example to get you started:
 
 ```swift
 import SwiftUI
-import RRSettingsKit
+import ErabiKit
 
 struct SettingsView: View {
     @State private var notificationsEnabled = true
